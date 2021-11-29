@@ -10,7 +10,7 @@ data class Todo(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Size(min = 0, max = 1000000)
-    val id: Int,
+    val id: Int? = null,
     @Column(nullable = false)
     var name: String,
     @Column

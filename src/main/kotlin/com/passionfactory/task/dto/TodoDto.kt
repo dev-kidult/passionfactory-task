@@ -10,8 +10,8 @@ class TodoDto {
     )
 
     data class Response(
-        val id: Int,
+        val id: Int? = null,
         val name: String,
-        val completed: Boolean
+        val completed: Boolean? = null
     )
 }

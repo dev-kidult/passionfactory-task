@@ -6,7 +6,6 @@ plugins {
     kotlin("jvm") version "1.6.0"
     kotlin("plugin.spring") version "1.6.0"
     kotlin("plugin.jpa") version "1.6.0"
-    kotlin("kapt") version "1.6.0"
 }
 
 group = "com.passion-factory"
@@ -17,14 +16,6 @@ repositories {
     mavenCentral()
 }
 
-sourceSets["main"].withConvention(org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet::class) {
-    kotlin.srcDir("$buildDir/generated/source/kapt/main")
-}
-
-ext {
-    set("snippetsDir", file("build/generated-snippets"))
-}
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-security")
@@ -33,10 +24,6 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
-    kapt("org.springframework.boot:spring-boot-configuration-processor")
-    kapt("com.querydsl:querydsl-apt:4.2.2:jpa")
-    implementation("com.querydsl:querydsl-jpa:4.2.2")
 
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")

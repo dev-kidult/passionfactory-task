@@ -9,7 +9,3 @@ spring:
   h2:
     console:
       enabled: true
-  data:
-    web:
-      pageable:
-        one-indexed-parameters: true
